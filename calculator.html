@@ -59,16 +59,14 @@
         className,
         children,
         ...props
-      }) {
-        return React.createElement(
-          as,
-          {
+        }) {
+          return React.createElement( as, {
             className: `${textVariants[variant]} ${className ? className : ""}`,
             ...props,
           },
           children,
         );
-      }
+       }
 
       const buttonVariants = {
         default: "bg-[var(--background)]",
@@ -81,13 +79,13 @@
             as="button"
             variant="heading"
             className={`
-            flex items-center justify-center rounded-xl
-            p-3 cursor-pointer text-[var(--text)]
-            bg-linear-[var(--gradient)] 
-            hover:bg-linear-[var(--gradient-hover)]
-            shadow-[var(--shadow)]
-            ${buttonVariants[variant]}
-            ${className ? className : ""}
+              flex items-center justify-center rounded-xl
+              p-3 cursor-pointer text-[var(--text)]
+              bg-linear-[var(--gradient)]
+              hover:bg-linear-[var(--gradient-hover)]
+              shadow-[var(--shadow)]
+              ${buttonVariants[variant]}
+              ${className ? className : ""}
             `}
             {...props}
           >
@@ -96,11 +94,23 @@
         );
       }
 
+      function Card({ children, className, ...props }) {
+        return (
+          <div className={`
+            bg-[var(--background)] shadow-[var(--shadow)]
+            rounded-2xl
+            ${className ? className : ''}
+          `}>
+            { children }
+          </div>
+        )
+      }
+
       function App() {
         return (
           <main className="py-28 px-4">
-            <Button>CE</Button>
-            
+            <Card> TESTETBSC </Card>
+
           </main>
         );
       }
