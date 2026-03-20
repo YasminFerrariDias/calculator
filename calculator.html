@@ -37,7 +37,9 @@
       }
     </style>
   </head>
-  <body class="text-[var(--text)] font-[var(--font-sans)] bg-linear-[180deg,_#807ECE_0%,#8E7ECE_100%]">
+  <body
+    class="text-[var(--text)] font-[var(--font-sans)] bg-linear-[180deg,_#807ECE_0%,#8E7ECE_100%]"
+  >
     <div id="root"></div>
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -139,7 +141,7 @@
           { input: "," },
           { input: "=", variant: "primary" },
         ],
-      ]
+      ];
 
       function CalculatorDisplay({ operation, result }) {
         return (
@@ -169,6 +171,10 @@
       }
 
       function Calculator() {
+        function handleInputClick(input) {
+          console.log(input);
+        }
+
         return (
           <Card
             className={`
@@ -181,14 +187,15 @@
             <div className="flex flex-col gap-3">
               {buttons.map((row, index) => (
                 <div key={`row-${index}`} className="flex gap-3">
-                  {row.map(button => (
-                    <Button 
+                  {row.map((button) => (
+                    <Button
                       key={button.input}
                       className={button.className || "w-16 h-16"}
                       variant={button.variant}
+                      onClick={() => handleInputClick(button.input)}
                     >
                       {button.input}
-                    </Button>  
+                    </Button>
                   ))}
                 </div>
               ))}
@@ -215,12 +222,14 @@
 
       function App() {
         return (
-          <main className={`
+          <main
+            className={`
             py-28 px-4 sm:px-10
             flex flex-col sm:flex-row
             items-center sm:items-stretch
             gap-2
-          `}>
+          `}
+          >
             <Calculator />
             <OperationHistory />
           </main>
