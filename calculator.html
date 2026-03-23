@@ -146,9 +146,16 @@
       const CalculatorContext = React.createContext();
       function CalculatorProvider({ children }) {
         const [history, setHistory] = React.useState([]);
+        const historyStorageKey = 'history'
 
         function updateHistory(operation, parsedResult) {
-          setHistory((prev) => [...prev, `${operation}=${parsedResult}`]);
+          setHistory((prev) => {
+            const updateHistory = [...prev, `${operation}=${parsedResult}`];
+
+            localStorage.setItem(historyStorageKey, JSON.stringify(updateHistory));
+
+            return updateHistory
+          });
         }
 
         return (
@@ -258,6 +265,7 @@
 
       function OperationHistory() {
         const { history } = React.useContext(CalculatorContext);
+        const historyStorageKey = "history";
 
         return (
           <Card className="w-full py-10 px-8">
