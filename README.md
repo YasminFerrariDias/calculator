@@ -1,16 +1,12 @@
-# Calculator
+# Calculadora
 
-Calculadora web desenvolvida em HTML e Tailwind CSS, com as quatro operações básicas e interface limpa.
+Calculadora web desenvolvida com HTML e Tailwind CSS.
 
 ## Tecnologias
 
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) — estruturação da página
-- [Tailwind CSS](https://tailwindcss.com/) — estilização e layout
+- [Tailwind CSS](https://tailwindcss.com/) — estilização da interface
 
-## Como Executar
+## Deploy
 
-Abra o arquivo `calculator.html` diretamente no navegador.
-
-## Sobre
-
-Projeto desenvolvido para prática de HTML e Tailwind CSS.
+[Acessar o site](https://yasminferraridias.github.io/calculator/)
